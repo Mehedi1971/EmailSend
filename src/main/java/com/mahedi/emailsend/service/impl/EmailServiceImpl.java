@@ -59,6 +59,6 @@ public class EmailServiceImpl implements EmailService {
         Email email = emailRepository.findByVerificationNumber(verificationNumber);
         email.setActiveStatus(1);
         emailRepository.save(email);
-        return "Verified!!!";
+        return "Your Email Id is Now Verified!!!";
     }
 }
