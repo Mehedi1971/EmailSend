@@ -4,7 +4,6 @@ import com.mahedi.emailsend.model.Email;
 import com.mahedi.emailsend.repository.EmailRepository;
 import com.mahedi.emailsend.service.EmailService;
 import jakarta.mail.internet.MimeMessage;
-import java.util.Arrays;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.javamail.JavaMailSender;
