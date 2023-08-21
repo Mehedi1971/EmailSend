@@ -4,6 +4,7 @@ import com.mahedi.emailsend.model.Email;
 import com.mahedi.emailsend.repository.EmailRepository;
 import com.mahedi.emailsend.service.EmailService;
 import jakarta.mail.internet.MimeMessage;
+import java.util.Arrays;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -29,9 +30,16 @@ public class EmailServiceImpl implements EmailService {
             MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage, true);
 
             String verificationNumber = String.valueOf((int) (Math.random() * 1000000));
+            int additionalNumber= 6-verificationNumber.length();
+            String v[]=new String[additionalNumber];
+            int j;
             if (verificationNumber.length() < 6) {
-                verificationNumber = "0" + verificationNumber;
+                for( j=0;j<additionalNumber;j++){
+                     v[j]="0";
+                }
+                verificationNumber = String.join("", v) + verificationNumber;
             }
+
             mimeMessageHelper.setFrom(fromEmail);
             mimeMessageHelper.setTo(to);
             mimeMessageHelper.setCc(cc);
