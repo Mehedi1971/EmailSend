@@ -14,8 +14,8 @@ public class EmailSendController {
     private final EmailService emailService;
 
     @PostMapping("/send")
-    public String sendEmail(@RequestParam MultipartFile[] files, String to, String[] cc, String subject, String body, Email email) {
-        return emailService.sendEmail(files,to,cc,subject,body,email);
+    public String sendEmail(@RequestParam MultipartFile[] files,String fromEmail, String to, String[] cc, String subject, String body, Email email) {
+        return emailService.sendEmail(files,fromEmail,to,cc,subject,body,email);
     }
 
     @GetMapping("/verificationNumber")

@@ -22,7 +22,7 @@ public class EmailServiceImpl implements EmailService {
     private final EmailRepository emailRepository;
 
     @Override
-    public String sendEmail(MultipartFile[] files, String to, String[] cc, String subject, String body, Email email) {
+    public String sendEmail(MultipartFile[] files,String fromEmail, String to, String[] cc, String subject, String body, Email email) {
         try {
             MimeMessage mimeMessage = javaMailSender.createMimeMessage();
 
